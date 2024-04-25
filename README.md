@@ -17,3 +17,5 @@
 
 运行某个特定的测试
 `mvn -Dtest=LibraryTest#parallelBorrowBookTest clean test`
+
+2024春夏数据库系统lab5，包括前端实现
