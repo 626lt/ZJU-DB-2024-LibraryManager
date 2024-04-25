@@ -33,6 +33,7 @@
 <script>
 import axios from 'axios';
 import { Search } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus';
 
 export default {
     data() {
@@ -62,12 +63,19 @@ export default {
     },
     methods: {
         async QueryBorrows() {
+            //ElMessage.success("开始查询")
             this.tableData = [] // 清空列表
+            //{ params: { cardID: this.toQuery } }
             let response = await axios.get('/borrow', { params: { cardID: this.toQuery } }) // 向/borrow发出GET请求，参数为cardID=this.toQuery
+            //ElMessage.success("请求发送成功")
             let borrows = response.data // 获取响应负载
+            ElMessage.success("查询成功")
             borrows.forEach(borrow => { // 对于每一个借书记录
+                //ElMessage.success("查询成功") // 提示查询成功
                 this.tableData.push(borrow) // 将它加入到列表项中
+                //this.tableData.push()
             });
+             // 提示查询成功
             this.isShow = true // 显示结果列表
         }
     }

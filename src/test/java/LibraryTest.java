@@ -494,7 +494,7 @@ public class LibraryTest {
         // corner case, for return_time > borrow_time
         Borrow nt = new Borrow(b0, c0);
         nt.setReturnTime(666);
-        Assert.assertFalse(library.returnBook(nt).ok);
+        Assert.assertFalse(library.returnBook(nt).ok); 
         nt.setReturnTime(r0.getBorrowTime());
         Assert.assertFalse(library.returnBook(nt).ok);
         // normal case
